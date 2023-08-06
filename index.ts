@@ -2,14 +2,14 @@ import { map, concatAll } from 'rxjs/operators';
 import { interval } from 'rxjs';
 
 //create and resolve basic promise
-const samplePromise = (val) => new Promise((resolve) => resolve(val );
-const sPromise = (val) => new Promise((resolve) => resolve(val + 1 );
+const samplePromise = (val) => new Promise((resolve) => resolve(val));
+const sPromise = (val) => new Promise((resolve) => resolve(val + 1));
 
 //emit a value every 2 seconds
 const srcInterval = interval(2000);
 
 const obsObj = srcInterval.pipe(
-  map((val) => samplePromise(val)),
+  map((val) => sPromise(val)),
   //merge values from resolved promise
   concatAll()
 );
